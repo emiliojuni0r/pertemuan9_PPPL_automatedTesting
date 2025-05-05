@@ -13,12 +13,12 @@ public class Tugas2 {
     static void setup(){
         //step 1 & 2
         driver = new EdgeDriver();
-        driver.get("https://automationexercise.com/test_cases");
+        driver.get("https://automationexercise.com/");
     }
 
 
     @Test
-    void TestPageVisiblySuccessfully(){
+    void testRegister(){
         Actions action = new Actions(driver);
         // step 3
         WebElement footer = driver.findElement(By.id("footer"));
@@ -72,12 +72,12 @@ public class Tugas2 {
         selectDropdownYearOfBirth.selectByContainsVisibleText("2001");
 
         // step 10 Select checkbox 'Sign up for our newsletter!'
-//        WebElement checkBoxNewsletter = formAccInfo.findElement(By.id("newsletter"));
-//        checkBoxNewsletter.click();
+        WebElement checkBoxNewsletter = driver.findElement(By.id("newsletter"));
+        checkBoxNewsletter.click();
 
         // step 11 Select checkbox 'Receive special offers from our partners!'
-//        WebElement checkBoxSpecialOffer = formAccInfo.findElement(By.id("optin"));
-//        checkBoxSpecialOffer.click();
+        WebElement checkBoxSpecialOffer = driver.findElement(By.id("optin"));
+        checkBoxSpecialOffer.click();
 
         // step 12 Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
         WebElement inputFirstName = formAccInfo.findElement(By.id("first_name"));
@@ -138,7 +138,7 @@ public class Tugas2 {
         WebElement titleAccountDeleted = driver.findElement(By.cssSelector(".container .row .col-sm-9 .title"));
         String textAccountDeleted = titleAccountDeleted.getText();
 
-        Assertions.assertEquals("ACCOUNT DELETED!E-commerce solutions", textAccountDeleted);
+        Assertions.assertEquals("ACCOUNT DELETED!", textAccountDeleted);
 
     }
 
